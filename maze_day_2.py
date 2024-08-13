@@ -11,9 +11,9 @@ background = transform.scale(image.load("background.jpg"), (700, 500))
 timer = time.Clock()
 
 
-goal = GameSprite('treasure.png', 300, 250, 4)
-player = Player('hero.png', 100, 100, 4)
-monster = Enemy('cyborg.png', 100, 100, 4)
+goal = GameSprite('treasure.png', 550, 400, 4)
+player = Player('hero.png', 5, 5, 4)
+monster = Enemy('cyborg.png', 300, 300, 4)
 
 
 mixer.init()
@@ -30,7 +30,7 @@ while game:
     player.controller()
 
     monster.reset(window)
-    monster.movement()
+    monster.auto_move()
 
     goal.reset(window)
 
