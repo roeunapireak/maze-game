@@ -27,12 +27,12 @@ class Player(GameSprite):
 
         if keys_pressed[K_LEFT] and self.rect.x > 5:
             self.rect.x -= self.speed
-        if keys_pressed[K_RIGHT] and self.rect.x < 600:
+        if keys_pressed[K_RIGHT] and self.rect.x < 635:
             self.rect.x += self.speed
 
         if keys_pressed[K_UP] and self.rect.y > 5:
             self.rect.y -= self.speed
-        if keys_pressed[K_DOWN] and self.rect.y < 400:
+        if keys_pressed[K_DOWN] and self.rect.y < 435:
             self.rect.y += self.speed
 
 # chill class of GameSprite
@@ -51,3 +51,16 @@ class Enemy(GameSprite):
             self.rect.x -= self.speed
         else:
             self.rect.x += self.speed
+
+
+class Wall(sprite.Sprite):
+    def __init__(self, color, x, y, w, h):
+        super().__init__()
+        self.image = Surface((w, h))
+        self.rect = self.image.get_rect()
+        self.rect.x = x
+        self.rect.y = y
+        self.image.fill(color)
+    
+    def draw(self, screen_obj):
+        screen_obj.blit(self.image, (self.rect.x, self.rect.y))
